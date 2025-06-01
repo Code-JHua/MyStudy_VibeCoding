@@ -7,12 +7,8 @@
 
 - git remote add origin EMAIL:1757417574/1757417574.git  // 关联远程仓库
 
-- git push origin master  // 把本地仓库的内容推送到远程仓库
+- git push origin main  // 把本地仓库的内容推送到远程仓库
 
 - git clone EMAIL:1757417574/1757417574.git  // 把远程仓库的内容克隆到本地仓库
-
-
-
-
 
 - git status  // 查看仓库状态
