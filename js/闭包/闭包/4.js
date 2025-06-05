@@ -2,10 +2,10 @@
 //     console.log(myname)
 //  }
 //  function foo() {
-//     var myname = '路明非'
+//     var myname = 'xiaohua'
 //     bar();
 //  }
-//  var myname = '路鸣泽'
+//  var myname = 'xiaohu'
 //  foo()
 
 

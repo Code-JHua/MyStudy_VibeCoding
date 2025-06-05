@@ -1,5 +1,5 @@
 function foo() {
-    var myname = '路明非'
+    var myname = 'xiaohua'
     var age = 18
 
     return function bar() {
