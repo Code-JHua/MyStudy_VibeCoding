@@ -1,12 +1,12 @@
-function foo() {
+function foo(person) {
     person.age = 20
     person = {
-        name: '刘洋'
+        name: '小钟'
     }
     return person
 }
 let p1 = {
-    name: '张三',
+    name: '小华',
     age: 18
 }
 let p2 = foo(p1)
