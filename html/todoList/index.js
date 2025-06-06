@@ -77,6 +77,6 @@ function removeItemFromArray(id) {
     }
 }
 
-function removeItemFromDom(id) {
+function removeItemFromDom(target) {
     target.remove();
 }
