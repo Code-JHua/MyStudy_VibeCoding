@@ -63,20 +63,20 @@ ul.addEventListener('click', function (event) {
         // 3. 获取被点击的 li 元素的 data-id 属性
         const id = target.getAttribute('data-id');
         // 4. 从数组中移除对应的待办事项
-        for (var i = 0; i < toDoListArray.length; i++) {
-            if (toDoListArray[i].itemId === id) {
-                toDoListArray.splice(i, 1);
-                break;
-            }
-        }
+        removeItemFromArray(id);
         // 5. 从 DOM 中移除对应的 li 元素
-        target.remove();
+        removeItemFromDom(target);
     }
 })
 function removeItemFromArray(id) {
-
+    for (var i = 0; i < toDoListArray.length; i++) {
+        if (toDoListArray[i].itemId === id) {
+            toDoListArray.splice(i, 1);
+            break;
+        }
+    }
 }
 
 function removeItemFromDom(id) {
-
+    target.remove();
 }
