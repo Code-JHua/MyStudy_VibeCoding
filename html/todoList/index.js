@@ -43,16 +43,16 @@ function addItemToDom(id, item) {
     ul.appendChild(li);
 }
 
-function renderToDoList(arr) {
-    for (var i = 0; i < arr.length; i++) {
-        // 1. 创建 li 元素
-        const li = document.createElement('li');
-        // 2. 给 li 元素添加内容
-        li.textContent = arr[i].todoItem;
-        // 3. 将 li 元素添加到 ul 列表中
-        ul.appendChild(li);
-    }
-}
+// function renderToDoList(arr) {
+//     for (var i = 0; i < arr.length; i++) {
+//         // 1. 创建 li 元素
+//         const li = document.createElement('li');
+//         // 2. 给 li 元素添加内容
+//         li.textContent = arr[i].todoItem;
+//         // 3. 将 li 元素添加到 ul 列表中
+//         ul.appendChild(li);
+//     }
+// }
 
 // 移除代办事项
 ul.addEventListener('click', function (event) {
