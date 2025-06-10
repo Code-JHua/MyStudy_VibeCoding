@@ -1,6 +1,6 @@
 const nums = [1, 3, -1, -3, 5, 3, 6, 7]
 const k = 3
-// var maxSlidingWindow = function (nums, k) {
+// var maxSlidingWindow = function (nums, k) { // 暴力解法
 //     let left = 0, right = k - 1
 //     let queue = []
 
@@ -25,7 +25,7 @@ const k = 3
 //     return max
 // }
 
-var maxSlidingWindow = function (nums, k) {
+var maxSlidingWindow = function (nums, k) { // 单调队列
     let res = []
     const deque = []  // 单调递减队列
 
