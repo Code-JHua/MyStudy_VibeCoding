@@ -1,0 +1,18 @@
+<script>
+    function Person() {
+        var obj = {} // 1
+        Person.call(obj) // 2  让 this = obj
+
+        this.name = '赖总'  // 3
+
+        obj.__proto__ = Person.prototype // 4
+
+        return obj // 5
+    }
+    const p = new Person()
+    console.log(p.__proto__.constructor); // 实例对象的隐式原型 === 构造函数显示原型
+    console.log(p.__proto__ === Person.prototype); // true
+    console.log(Person.prototype.constructor === Person); // true
+
+
+</script>
