@@ -8,17 +8,17 @@
 - this 是一个代词，代指一个对象
 
 # this 的绑定规则
+1. 默认绑定 --- 当函数被独立调用时，函数的 this 指向 window/global
 2. 隐式绑定 --- 当函数引用有上下文对象且被该对象调用时，隐式绑定规则会把函数调用中的 this 绑定到这个上下文对象
 3. 隐式丢失 --- 当一个函数被多层对象调用时，函数的 this 指向最近的那一层对象
 4. 显示绑定 
-1. 默认绑定 --- 当函数被独立调用时，函数的 this 指向 window/global
     1. fn.call(obj, x, y , ...)
+     显式的将 fn 里面的 this 绑定到 obj 上， call 负责帮 fn 接收参数
     2. fn.apply(obj, [x, y, ...])
+     apply 与 call 类似，只是参数的形式不同， apply 接收的是一个数组， call 接收的是一个参数列表
     3. foo.bind(obj)
      显式的将 fn 里面的 this 绑定到 obj 上，bind 会返回一个新的函数，bind 和 新函数都可以负责帮 fn 接收
-     显式的将 fn 里面的 this 绑定到 obj 上， call 负责帮 fn 接收参数
 5. new 绑定 -- new 的远离会导致函数的 this 指向实例对象 
-     apply 与 call 类似，只是参数的形式不同， apply 接收的是一个数组， call 接收的是一个参数列表
     
 # 箭头函数
 箭头函数中没有 this 这个概念，写在了箭头函数中的 this 也是他外层那个非箭头函数的 this
