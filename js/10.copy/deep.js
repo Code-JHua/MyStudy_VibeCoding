@@ -21,7 +21,6 @@ function deepCopy(obj) {
             } else {  // 如果不是对象
                 newObj[key] = obj[key]
             }
-            newObj[key] = obj[key]
         }
     }
     return newObj
