@@ -32,3 +32,4 @@
   # 没有原型的对象
   - Object.create(obj) 创建一个新对象，让这个新对象的隐式原型等于传入的obj
   - Object.create(null) 创建一个没有原型的对象
+  
