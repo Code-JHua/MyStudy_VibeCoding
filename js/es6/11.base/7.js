@@ -1,9 +1,9 @@
 const obj = {
     name: '小华',
     age: 18,
-    // like: {
-    //     n: '泡脚',
-    // }
+    like: {
+        n: '泡脚',
+    }
 }
 
 const key = 'sex'
