@@ -23,7 +23,7 @@
                 let that = this
                 clearTimeout(timer)
                 timer = setTimeout(function() {
-                    fn.call(this,...arg)
+                    fn.call(that,...arg)
                 }, wait)
             }
         }
