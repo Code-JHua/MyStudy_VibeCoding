@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .page {
+            display: flex;
+            height: 100vh;
+        }
+
+        .menu {
+            /* width: 200px; */
+            flex: 0 0 200px;
+            background-color: #90b2da;
+            order: -1;
+        }
+
+        .content {
+            flex: 1 0 200px;
+            background-color: #d38989;
+        }
+
+        .right {
+            /* width: 200px; */
+            flex: 0 0 200px;
+            background-color: #90da90;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="content">内容</div>
+        <div class="menu">左栏</div>
+        <div class="right">右栏</div>
+    </div>
+</body>
+
+</html>

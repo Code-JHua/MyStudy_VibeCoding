@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height:700px;
+            background-color: #a8a3a3;
+            /* flex-direction: column; */
+            /* justify-content: center; 主轴对齐方式 */
+            /* align-items:center;  交叉轴对齐方式 */
+            /* flex-wrap: wrap; 换行方式 */
+            /* flex-flow: row wrap; 简写 */
+            /* align-content: center; 交叉轴对齐方式; */
+        }
+        ul li {
+            list-style: none;
+            width: 200px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+        }
+        .item1 {
+            background-color:rgb(131, 214, 214);
+        }
+        .item2 {
+            background-color: rgb(176, 129, 219);
+        }
+       .item3 {
+            background-color: rgb(231, 140, 140);
+        }
+        .item4 {
+            background-color: rgb(139, 212, 145); 
+        }
+        .item5 {
+            background-color: rgb(175, 200, 120);
+        }
+         /* li {
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: 100px;
+            flex: 1 0 100px; 
+         } */
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="item1">1</li>
+        <li class="item2">2</li>
+        <li class="item3">3</li>
+        <li class="item4">4</li>
+        <li class="item5">5</li>
+    </ul>
+</body>
+</html>
