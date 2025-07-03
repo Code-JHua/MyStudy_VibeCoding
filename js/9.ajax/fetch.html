@@ -8,17 +8,27 @@
 </head>
 
 <body>
+    <!-- 数据获取按钮：点击触发fetch请求获取歌手数据 -->
     <button id="btn">获取数据</button>
 
     <script>
+        // 获取页面中的按钮元素
         let btn = document.getElementById('btn')
+        
+        // 为按钮添加点击事件监听器
         btn.addEventListener('click', () => {
+            // 使用fetch API发送GET请求到模拟数据接口
+            // 请求URL：包含分页参数page=1的歌手数据接口
             fetch('https://mock.mengxuegu.com/mock/66585c4db462b81cb3916d3e/songer/songer?page=1', {
-                method: 'GET'
-            }).then((response) => {
+                method: 'GET'  // 指定HTTP请求方法为GET
+            })
+            // 第一个.then()：处理响应对象，将其转换为JSON格式
+            .then((response) => {
                 return response.json()
-            }).then((data) => {
-                console.log(data);
+            })
+            // 第二个.then()：处理解析后的JSON数据
+            .then((data) => {
+                console.log(data);  // 在控制台打印获取到的数据
             })
         })
     </script>
