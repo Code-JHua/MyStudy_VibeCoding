@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    background-color: #8E6FF7;
+    height: 54px;
+    align-items: center;
+    padding: 0 15px;
+    color: #fff;
+}
+
+.changeCity {
+    display: flex;
+    padding: 4px 12px;
+    background-color: #A58CF9;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px 4px 4px 4px;
+}
+
+.icon-head100 {
+    margin-right: 7px;
+}
+
+.body {
+    margin: 0 16px;
+
+}
+
+.temp {
+    font-family: Roboto, Roboto;
+    font-size: 46px;
+    color: #000000;
+    line-height: 60px;
+}
+
+.feel {
+    color:#4B5563;
+    margin-top: 8px;
+}
+
+.today {
+    background: linear-gradient(146deg, rgba(142, 111, 247, 0.1) 0%, rgba(142, 111, 247, 0.05) 100%), rgba(0, 0, 0, 0);
+    border-radius: 16px 16px 16px 16px;
+    margin-top: 7px;
+    text-align: center;
+    padding: 24px;
+}
+
+.detail ul {
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-around
+}
+
+.detail li {
+    list-style: none
+}
+.detail .category {
+    color: #4B5563;
+    font-size: 14px; 
+    line-height: 20px;
+}
+.detail .value {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+
+.icon-shidu {
+    color:#8E6FF7
+}
+.icon-fengli {
+    color: #8E6FF7;
+}
+.icon-fenglijianceqi {
+    color: #8E6FF7;
+}
+
+.futrue {
+    margin: 24px 16px;
+}
+
+.futrue-list {
+    display:flex;
+    margin-top: 16px;
+    overflow-x: scroll;
+    list-style: none;
+}
+.futrue-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 120px;
+    padding: 17px;
+    margin-right: 16px;
+    box-sizing: border-box;
+    background: #FFFFFF rgba(0, 0, 0, 0.001);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 16px 16px 16px 16px;
+    border: 1px solid #F3F4F6;
+}
+
+.week {
+    align-self: flex-start;
+    color:#4B5563;
+    font-size: 14px;
+}
+
+.futrue-list img {
+    margin: 8px 0px 10px 0px;
+    width: 64px;
+    height: 64px;
+}
+.max-min {
+    text-align: center;
+    display: flex;
+
+}
+.min {
+    margin-top: 3px;
+    color: #9CA3AF;
+    font-size: 14px;
+}
+.title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 24px;
+}
