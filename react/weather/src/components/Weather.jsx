@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 function Weather() {
     const [city, setCity] = useState('北京市')
     const [weather, setWeather] = useState({})
-    const [futureWeather, setFutureWeather] = useState({})
+    const [futureWeather, setFutureWeather] = useState([])
     let img = {
         '晴': '/img/晴天.png',
         '多云': '/img/白天-晴间多云.png',
@@ -28,7 +28,8 @@ function Weather() {
             getLocalCity(AMap) 
             
         })
-    },[])
+    }, [])
+    
     function getLocalCity(AMap) {
         AMap.plugin('AMap.CitySearch', function () {
             var citySearch = new AMap.CitySearch()
@@ -44,6 +45,7 @@ function Weather() {
             })
         })
     }
+
     function getWeather(AMap, myCity) {
         //加载天气查询插件
         AMap.plugin("AMap.Weather", function () {
@@ -58,6 +60,7 @@ function Weather() {
             });
         });
     }
+
     function getFutureWeather(AMap, myCity) {
         //加载天气查询插件
         AMap.plugin("AMap.Weather", function () {
@@ -68,7 +71,7 @@ function Weather() {
                 console.log(err, data);
                 //err 正确时返回 null
                 //data 返回天气预报数据，返回数据见下表
-                setFutureWeather(data)
+                setFutureWeather(data.forecasts)
             });
         });
     }
@@ -118,29 +121,29 @@ function Weather() {
                         三天天气预报
                     </div>
                     <ul className="futrue-list">
+                       
                         <li className="futrue-item">
-                            <div className="week">周{futureWeather?.forecasts?.[1]?.week}</div>
-                            <img src={img[futureWeather?.forecasts?.[1]?.dayWeather]} alt="天气图标" />
+                            <div className="week">周{futureWeather?.[1]?.week}</div>
+                            <img src={img[futureWeather?.[1]?.dayWeather]} alt="天气图标" />
                             <div className="max-min">
-                                <div className="max">{futureWeather?.forecasts?.[1]?.dayTemp}°</div>
-                                <div className="min">/ {futureWeather?.forecasts?.[1]?.nightTemp}°</div>
-                            </div>
-
-                        </li>
-                        <li className="futrue-item">
-                            <div className="week">周{futureWeather?.forecasts?.[2]?.week}</div>
-                            <img src={img[futureWeather?.forecasts?.[2]?.dayWeather]} alt="天气图标" />
-                            <div className="max-min">
-                                <div className="max">{futureWeather?.forecasts?.[2]?.dayTemp}°</div>
-                                <div className="min">/ {futureWeather?.forecasts?.[2]?.nightTemp}°</div>
+                                <div className="max">{futureWeather?.[1]?.dayTemp}°</div>
+                                <div className="min">/ {futureWeather?.[1]?.nightTemp}°</div>
                             </div>
                         </li>
                         <li className="futrue-item">
-                            <div className="week">周{futureWeather?.forecasts?.[3]?.week}</div>
-                            <img src={img[futureWeather?.forecasts?.[3]?.dayWeather]} alt="天气图标" />
+                            <div className="week">周{futureWeather?.[2]?.week}</div>
+                            <img src={img[futureWeather?.[2]?.dayWeather]} alt="天气图标" />
                             <div className="max-min">
-                                <div className="max">{futureWeather?.forecasts?.[3]?.dayTemp}°</div>
-                                <div className="min">/ {futureWeather?.forecasts?.[3]?.nightTemp}°</div>
+                                <div className="max">{futureWeather?.[2]?.dayTemp}°</div>
+                                <div className="min">/ {futureWeather?.[2]?.nightTemp}°</div>
+                            </div>
+                        </li>
+                        <li className="futrue-item">
+                            <div className="week">周{futureWeather?.[3]?.week}</div>
+                            <img src={img[futureWeather?.[3]?.dayWeather]} alt="天气图标" />
+                            <div className="max-min">
+                                <div className="max">{futureWeather?.[3]?.dayTemp}°</div>
+                                <div className="min">/ {futureWeather?.[3]?.nightTemp}°</div>
                             </div>
                         </li>
                     </ul>
