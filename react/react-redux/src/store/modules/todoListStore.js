@@ -27,7 +27,7 @@ const todoList = createSlice({
     },
     deleteTodo(state, action) {
       const id = action.payload
-      state.list.splice(state.list.find(item => item.id == id) - 1, 1)
+      state.list.splice(state.list.findIndex(item => item.id == id), 1) 
     }
   }
 
