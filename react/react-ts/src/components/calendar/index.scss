@@ -1,0 +1,102 @@
+.calendar {
+    width: 100%;
+    background-color: #b6dcf5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-month {
+    &-week-list{
+        display: flex;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid #7d7d7f;
+        &-item {
+            padding: 20px 16px;
+            text-align: center;
+            color: #7d7d7f;
+            flex: 1;
+        }
+    }
+    &-days {
+        display: flex;
+        flex-direction: column;
+    }
+    &-body {
+        &-row {
+                display: flex;
+        }
+        
+        &-cell {
+            padding: 20px 16px;
+            text-align: center;
+            color: #7d7d7f;
+            flex: 1;
+        
+            &-current {
+                color: #000000;
+            }   
+        }
+    }
+    
+}
+
+.calendar-header {
+    padding: 20px 16px;
+    display: flex;
+    justify-content: right;
+
+    &-left {
+        display: flex;
+        align-items: center;
+
+        height: 28px;
+        line-height: 28px;
+    }
+
+    &-value {
+        font-size: 20px;
+    }
+
+    &-btn {
+        background: #9688da;
+        cursor: pointer;
+        border: 0;
+        padding: 0 15px;
+        line-height: 28px;
+        border-radius: 4px; // 添加圆角
+        transition: all 0.2s ease; // 添加过渡效果
+        
+        &:hover {
+            background: #9688da;
+        }
+
+    }
+
+    &-icon {
+        width: 28px;
+        height: 28px;
+
+        line-height: 28px;
+
+        border-radius: 50%;
+        text-align: center;
+        font-size: 12px;
+
+        user-select: none;
+        cursor: pointer;
+
+        margin-right: 12px;
+
+        &:not(:first-child) {
+            margin: 0 12px;
+        }
+
+        &:hover {
+            background: #708eb5;
+        }
+
+    }
+
+}
