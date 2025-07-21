@@ -22,7 +22,7 @@ export const useComponentsStore = create<State & Action>((set, get) => ({
   components: [
     {
       id: 1,
-      name: 'Container',
+      name: 'Page',
       props: {},
       desc: '页面',
       children: [],

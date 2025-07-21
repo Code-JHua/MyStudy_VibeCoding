@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import Container from '../materials/Container'
 import Button from '../materials/Button'
+import Page from '../materials/Page'
 
 export interface ComponentConfig {
   name: string;
@@ -16,9 +17,15 @@ export interface Action {
   registerComponent: (name: string, componentConfig: ComponentConfig) => void
 }
 
+// 每一个名字对应的组件具体是哪一个
 export const useComponentConfigStore = create<State & Action>(
   (set) => ({
     componentConfig: {
+      Page: {
+        name: 'Page',
+        defaultProps: {},
+        component: Page
+      },
       Container: {
         name: 'Container',
         defaultProps: {},
@@ -33,7 +40,6 @@ export const useComponentConfigStore = create<State & Action>(
       
       registerComponent: (name, componentConfig) => {
         set((state) => ({
-          ...state,
           componentConfig: {
             ...state.componentConfig,
             [name]: componentConfig
