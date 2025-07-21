@@ -1,5 +1,6 @@
 import { useComponentConfigStore } from '../../stores/component-config'
-import {useMemo} from 'react'
+import { useMemo } from 'react'
+import MaterialItem from '../MaterialItem'
 
 export default function Material() {  
   const { componentConfig } = useComponentConfigStore()
@@ -10,8 +11,8 @@ export default function Material() {
   return (
     <div>
       {
-        components.map((item) => {
-          return <div key={item.name} className='border-[1px] border-dashed border-black py-2 px-2 inline-block bg-white m-[10px] hover:bg-[#ccc]'>{item.name}</div>
+        components.map((item, index) => {
+          return <MaterialItem key={item.name + index} name={item.name} />
         })
       }
     </div>

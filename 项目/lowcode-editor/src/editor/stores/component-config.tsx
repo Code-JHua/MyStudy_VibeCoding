@@ -28,12 +28,17 @@ export const useComponentConfigStore = create<State & Action>(
       },
       Container: {
         name: 'Container',
-        defaultProps: {},
+        defaultProps: {
+
+        },
         component: Container
       },
       Button: {
         name: 'Button',
-        defaultProps: {},
+        defaultProps: {
+          type: 'primary',
+          text: '按钮'
+        },
         component: Button
       },
     },

@@ -27,5 +27,6 @@ npm install allotment --save  拖动改变容器大小
 3. 定义了 renderComponents 函数用来将 整个 json 渲染成真实的 html 结构, 这里面借助 React.createElement 函数, 递归渲染整个 json 树
 
 4. 实现 物料区组件 拖拽到 画布区
-react-dnd  跨组件传递数据
-react-dnd-html5-backend 
+    react-dnd  跨组件传递数据
+    react-dnd-html5-backend  拖拽组件到画布区
+真的拖拽了一个组件名到 EditArea, 就要将这个名字对应的组件对象植入到 json 中

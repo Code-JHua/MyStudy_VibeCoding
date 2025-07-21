@@ -46,6 +46,8 @@ export default function EditArea() {
         config.component,
         {
           key: component.id,
+          id: component.id,
+          name: component.name,
           ...config.defaultProps,
           ...component.props,
         },
@@ -55,10 +57,8 @@ export default function EditArea() {
   }
 
   return (
-    <div>
-      <div>
+    <div className='h-[100%]'>
         {renderComponents(components)}
-      </div>
       {/* <pre>
         {
           JSON.stringify(components, null, 2)
