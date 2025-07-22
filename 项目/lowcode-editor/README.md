@@ -27,6 +27,14 @@ npm install allotment --save  拖动改变容器大小
 3. 定义了 renderComponents 函数用来将 整个 json 渲染成真实的 html 结构, 这里面借助 React.createElement 函数, 递归渲染整个 json 树
 
 4. 实现 物料区组件 拖拽到 画布区
-    react-dnd  跨组件传递数据
+    1. react-dnd  跨组件传递数据
     react-dnd-html5-backend  拖拽组件到画布区
-真的拖拽了一个组件名到 EditArea, 就要将这个名字对应的组件对象植入到 json 中
+
+    2. 真的拖拽了一个组件名到 EditArea, 就要将这个名字对应的组件对象植入到 json 中
+
+    3. 借助 react-dnd 中的 useDrop 来接收组件
+
+    4. 抽离 useDrop 代码, 封装成一个 hook
+
+    5. 当中间画布展示好了组件之后, 我们封装了一个 HoverMask 组件, 为了实现用户鼠标移入哪一个组件上, 该组件被选中的效果
+     - HoverMask: 接收一个组件类名, 通过 js 获取到该容器的几何属性, 动态的将 mask 容器也设置成相同的大小并覆盖到组件容器上

@@ -12,13 +12,13 @@ export default function LowCodeEditor() {
         <Header></Header>
       </div>
       <Allotment>
-        <Allotment.Pane preferredSize={240} maxSize={300} minSize={200}>
+        <Allotment.Pane preferredSize={240} maxSize={600} minSize={50}>
           <Material></Material>
         </Allotment.Pane>
         <Allotment.Pane>
           <EditArea></EditArea>
         </Allotment.Pane>
-        <Allotment.Pane preferredSize={300} maxSize={500} minSize={300}>
+        <Allotment.Pane preferredSize={300} maxSize={600} minSize={50}>
           <Setting></Setting>
         </Allotment.Pane>
       </Allotment>
