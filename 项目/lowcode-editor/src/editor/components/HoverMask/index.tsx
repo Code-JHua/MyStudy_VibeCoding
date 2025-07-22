@@ -18,8 +18,6 @@ export default function HoverMask({ containerClassName, componentId, portalWrapp
     left: 0,
     width: 0,
     height: 0,
-    labelTop: 0,
-    labelLeft: 0,
   })
 
   useEffect(() => {
@@ -42,8 +40,6 @@ export default function HoverMask({ containerClassName, componentId, portalWrapp
       left: left - containerLeft + container.scrollLeft,
       width,
       height,
-      labelTop: top - containerTop + container.scrollTop,
-      labelLeft: left - containerLeft + width,
     })
   }
 
@@ -54,7 +50,7 @@ export default function HoverMask({ containerClassName, componentId, portalWrapp
     // const container = document.querySelector(`.${containerClassName}`)
     // container!.appendChild(el)
     // return el
-    return document.querySelector(`.${portalWrapperClassName}`)
+    return document.querySelector(`.${portalWrapperClassName}`) || document.createElement('div')
   }, [])
   
   const curComponent = useMemo(() => {
@@ -75,16 +71,16 @@ export default function HoverMask({ containerClassName, componentId, portalWrapp
         borderRadius: 4,
         boxSizing: 'border-box',
         pointerEvents: 'none',
-        zIndex: 12
+        zIndex: 13
       }}></div>
 
       <div
         style={{
           position: 'absolute',
-          top: position.labelTop,
-          left: position.labelLeft,
-          fontSize: 14,
-          zIndex: 13,
+          top: position.top,
+          left: position.left + position.width,
+          fontSize: 14, 
+          zIndex: 12,
           display: (!position.width || position.width < 10) ? 'none' : 'inline-block',
           transform: 'translate(-100%, -100%)'
         }}

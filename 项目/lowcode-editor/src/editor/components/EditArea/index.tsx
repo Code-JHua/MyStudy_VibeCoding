@@ -1,12 +1,13 @@
-import React,{ useEffect, useState } from 'react'
+import React,{ useState } from 'react'
 import { useComponentsStore } from '../../stores/components'
 import type { Component } from '../../stores/components'
 import { useComponentConfigStore } from '../../stores/component-config'
 import HoverMask from '../HoverMask'
+import SelectedMask from '../SelectedMask'
 
 export default function EditArea() {
-  const { components, addComponent, removeComponent, updateComponentProps } = useComponentsStore()
-  const { registerComponent, componentConfig } = useComponentConfigStore()
+  const { components, curComponentId,setCurComponentId } = useComponentsStore()
+  const {  componentConfig } = useComponentConfigStore()
   
   const [hoverComponentId, setHoverComponentId] = useState<number>()
   // useEffect(() => {
@@ -69,13 +70,31 @@ export default function EditArea() {
         return
       }
     }
-    
+    setHoverComponentId(undefined)
+  }
+
+  // 借助冒泡机制, 点击页面上的任何组件,点击行为都会冒泡到这里
+  const handleClick: React.MouseEventHandler = (e) => {
+    const path = e.nativeEvent.composedPath()
+    for (let i = 0; i < path.length; i++) {
+      const ele = path[i] as HTMLElement
+      const componentId = ele.dataset.componentId
+      if (componentId) {
+        setCurComponentId(+componentId)
+        return
+      }
+    }
   }
 
   return (
-    <div className='h-[100%] edit-area' onMouseOver={handleMouseOver} onMouseLeave={() => setHoverComponentId(undefined)}>
+    <div className='h-[100%] edit-area portal-wrapper' onMouseOver={handleMouseOver} onMouseLeave={() => setHoverComponentId(undefined)} onClick={handleClick}>
+
       {renderComponents(components)}
-      {hoverComponentId && <HoverMask componentId={hoverComponentId} containerClassName='edit-area' portalWrapperClassName='portal-wrapper'/>}
+
+      {hoverComponentId && <HoverMask componentId={hoverComponentId} containerClassName='edit-area' portalWrapperClassName='portal-wrapper' />}
+      
+      {curComponentId && (<SelectedMask componentId={curComponentId} containerClassName='edit-area' portalWrapperClassName='portal-wrapper' />)}
+
     </div>
   )
 }

@@ -9,17 +9,20 @@ export interface Component {
 }
 export interface State {
   components: Component[]
+  curComponentId: number | null,
+  curComponent: Component | null,
 }
 export interface Action {
   addComponent: (component: Component, parentId?: number) => void,
   removeComponent: (id: number) => void,
   updateComponentProps: (id: number, props: any) => void
+  setCurComponentId: (id: number) => void,
 }
 
 export const useComponentsStore = create<State & Action>((set, get) => ({
 
   // 数据
-  components: [
+  components: [ // 整个项目的 json 树
     {
       id: 1,
       name: 'Page',
@@ -28,6 +31,8 @@ export const useComponentsStore = create<State & Action>((set, get) => ({
       children: [],
     }
   ],
+  curComponentId: null,
+  curComponent: null,
   // 方法
   addComponent(component, parentId) { // 本质上就是要将一个对象添加到另一个对象中
     set((state) => {
@@ -65,6 +70,12 @@ export const useComponentsStore = create<State & Action>((set, get) => ({
         component.props = { ...component.props, ...props }
       }
       return { components: [...state.components] }
+    })
+  },
+  setCurComponentId(id) {
+    set({
+      curComponentId: id,
+      curComponent: getComponentById(id, get().components)
     })
   },
 }))
