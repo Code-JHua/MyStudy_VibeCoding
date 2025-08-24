@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="list"></ul>
+
+  <script>
+    const list = document.getElementById('list')
+    const data = new Array(100000).fill(0).map((item, index) => ({
+      id: index,
+      name: `name${index}`
+    }))
+
+    let start = Date.now()
+    for (let i = 0; i < data.length; i++) {
+      const item = data[i]
+      const li = document.createElement('li')
+      li.innerHTML = item.name
+      list.appendChild(li)
+    }
+    console.log('js', Date.now() - start);
+    
+    setTimeout(() => {
+      console.log('渲染', Date.now() - start)
+    }, 0)
+
+
+  </script>
+
+</body>
+</html>
