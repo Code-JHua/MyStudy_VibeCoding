@@ -23,8 +23,8 @@
   6. 子选择器 >
   7. 相邻选择器 +
   8. 群组选择器 ,
-  9. 伪类选择器 :
-  10. 伪元素选择器 ::
+  9. 伪类选择器 :hover, :active, :focus, :visited, :first-child, :last-child, :nth-child()
+  10. 伪元素选择器 ::before, ::after
   11. 属性选择器 []
 - 优先级
   - !important > 内联样式 > id选择器 > 类选择器 > 标签选择器
