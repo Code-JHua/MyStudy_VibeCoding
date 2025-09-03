@@ -165,26 +165,26 @@ class MyPromise {
       let count = 0
       for (let i = 0; i < promises.length; i++) {
         promises[i]
-        .then(
-          (value) => {
-            arr[i] = {
-              status: 'fulfilled',
-              value
+          .then(
+            (value) => {
+              arr[i] = {
+                status: 'fulfilled',
+                value
+              }
+            },
+            (reason) => {
+              arr[i] = {
+                status: 'rejected',
+                reason
+              }
             }
-          },
-          (reason) => {
-            arr[i] = {
-              status: 'rejected',
-              reason
+          )
+          .finally(() => {
+            count++
+            if (count === promises.length) {
+              resolve(arr)
             }
-          }
-        )
-        .finally(() => {
-          count++
-          if (count === promises.length) {
-            resolve(arr)
-          }
-        })
+          })
       }
     })
   }
@@ -222,8 +222,9 @@ function C() {
 //   console.log(err)
 // })
 
-MyPromise.allSettled([A(), B(), C()])
-  .then(res => {
+MyPromise.allSettled([A(), B(), C()]).finally(() => {
+  console.log('finally')
+}).then(res => {
     console.log(res, '成功')
   }, err => {
     console.log(err, '失败')
