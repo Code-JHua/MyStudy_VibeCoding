@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li><a href="/home">首页</a></li>
+    <li><a href="/about">关于</a></li>
+  </ul>
+  
+  <!-- 当 url 变更后,展示对应的代码片段 -->
+  <div class="root"></div>
+
+  <script>
+    const routes = [
+      {
+        path: '/home',
+        component: () => {
+          return '<h1>首页</h1>'
+        }
+      },
+      {
+        path: '/about',
+        component: () => {
+          return '<h1>关于</h1>'
+        }
+      }
+    ]
+
+    window.addEventListener('DOMContentLoaded', () => {
+      onload()
+    })
+
+    window.addEventListener('popstate', () => { // 浏览器的回退按钮被点击时,调用该函数
+      renderView()
+    })
+
+    function onload() { // 页面加载完成后,调用该函数, 渲染对应的组件
+      let linkList = document.querySelectorAll('a[href]')
+      linkList.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault()
+          history.pushState(null,'', item.getAttribute('href')) // 进入浏览器的缓存栈, 但不受回退按钮的影响
+          renderView()
+        })
+      })
+    }
+
+    function renderView() {
+      let routerView = document.querySelector('.root')
+      let path = location.pathname
+      let index = routes.findIndex(item => item.path === path)
+      routerView.innerHTML = routes[index].component()
+    }
+  </script>
+</body>
+</html>
